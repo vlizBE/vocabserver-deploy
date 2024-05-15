@@ -1,0 +1,165 @@
+version: '3.4'
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+services:
+  frontend:
+    image: ghcr.io/vlizbe/vocabserver-frontend:${BUILD_TAG:-latest}
+    restart: always
+    logging: *default-logging
+  identifier:
+    ports:
+      - 0.0.0.0:3033:80
+    image: semtech/mu-identifier:1.10.1
+    environment:
+      SESSION_COOKIE_SECURE: "on"
+      DEFAULT_ACCESS_CONTROL_ALLOW_ORIGIN_HEADER: "*"
+    links:
+      - dispatcher:dispatcher
+    restart: always
+    logging: *default-logging
+  dispatcher:
+    image: semtech/mu-dispatcher:2.1.0-beta.2
+    links:
+      - resource:resource
+    volumes:
+      - ./config/dispatcher:/config
+    restart: always
+    logging: *default-logging
+  delta-notifier:
+    image: semtech/mu-delta-notifier:0.2.0
+    volumes:
+      - ./config/delta:/config
+    restart: always
+    logging: *default-logging
+  database:
+    image: semtech/mu-authorization:0.6.0-beta.8
+    environment:
+      MU_SPARQL_ENDPOINT: "http://triplestore:8890/sparql"
+    volumes:
+      - ./config/authorization:/config
+    networks:
+      - default
+      - ldes-consumers
+    restart: always
+    logging: *default-logging
+  triplestore:
+    image: redpencil/virtuoso:1.2.0-rc.1
+    environment:
+      SPARQL_UPDATE: "true"
+      DEFAULT_GRAPH: "http://mu.semte.ch/application"
+    volumes:
+      - ./data/db:/data
+      - ./config/virtuoso/virtuoso.ini:/data/virtuoso.ini
+    restart: always
+    logging: *default-logging
+  migrations:
+    image: semtech/mu-migrations-service:0.8.0
+    links:
+      - triplestore:database
+    volumes:
+      - ./config/migrations:/data/migrations
+    restart: always
+    logging: *default-logging
+  file:
+    image: semtech/mu-file-service:3.2.0
+    environment:
+      FILE_RESOURCE_BASE: "http://example-resource.com/files/"
+    volumes:
+      - ./data/files:/share
+    restart: always
+    logging: *default-logging  
+  resource:
+    image: semtech/mu-cl-resources:1.23.0
+    links:
+      - database:database
+    volumes:
+      - ./config/resources:/config
+    restart: always
+    logging: *default-logging
+  search:
+    image: semtech/mu-search:0.10.0-beta.3
+    volumes:
+      - ./config/search:/config
+    restart: always
+    logging: *default-logging
+  elasticsearch:
+    image: semtech/mu-search-elastic-backend:1.0.0
+    volumes:
+      - ./data/elasticsearch/:/usr/share/elasticsearch/data
+    ulimits:
+      nproc: 65536
+      nofile:
+        soft: 65535
+        hard: 65535
+    environment:
+      - discovery.type=single-node
+    restart: always
+    logging: *default-logging
+  job-controller:
+    image: lblod/job-controller-service:1.0.1
+    volumes:
+      - ./config/job-controller/:/config/
+    environment:
+      LOG_SPARQL_QUERIES: "true"
+      LOG_SPARQL_UPDATES: "true"
+    restart: always
+    logging: *default-logging
+  vocab-fetch:
+    image: ghcr.io/vlizbe/vocabserver-app/vocab-fetch:${BUILD_TAG:-latest}
+    volumes:
+      - ./data/vocab-fetch:/share
+      - ./services/vocab-fetch/:/app
+    # Run in dev mode to circument memory limitations
+    environment:
+      MU_VIRTUOSO_ENDPOINT: "http://triplestore:8890/sparql"
+      UPDATE_DATASET_DUMP_CRON_PATTERN: "5 * * * *" # hourly
+      MODE: "development"
+    restart: always
+    logging: *default-logging
+  content-unification:
+    image: ghcr.io/vlizbe/vocabserver-app/content-unification:${BUILD_TAG:-latest}
+    volumes:
+      - ./data/vocab-fetch:/share
+      - ./services/content-unification/:/app
+    environment:
+      MU_SPARQL_ENDPOINT: "http://database:8890/sparql"
+      MU_SPARQL_UPDATEPOINT:  "http://triplestore:8890/sparql"
+      MU_AUTH_ENDPOINT: "http://database:8890/sparql"
+      # Run in dev mode to circumvent memory limitations
+      MODE: "development"
+    restart: always
+    logging: *default-logging
+  uuid-generation:
+    image: kanselarij/uuid-generation-service:1.0.0
+    volumes:
+      - ./config/uuid-generation/:/config
+    restart: always
+    logging: *default-logging
+  webcomponent:
+    image: ghcr.io/vlizbe/vocabserver-webcomponent:${BUILD_TAG:-latest}
+  ldes-consumer-manager:
+    image: redpencil/ldes-consumer-manager:0.1.0
+    environment:
+      MU_NETWORK: ldes-consumers
+      CONSUMER_IMAGE: redpencil/ldes-consumer:feature-consumer-status
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    restart: always
+    logging: *default-logging
+  vocab-configs:
+    image: ghcr.io/vlizbe/vocabserver-app/vocab-configs:${BUILD_TAG:-latest}
+    environment:
+      MU_APPLICATION_FILE_STORAGE_PATH: "vocab-configs/"
+      MODE: "development"
+      MU_SPARQL_ENDPOINT: "http://database:8890/sparql"
+      MU_SPARQL_DIRECT_UPDATEPOINT:  "http://triplestore:8890/sparql"
+      MU_AUTH_ENDPOINT: "http://database:8890/sparql"
+    volumes:
+      - ./data/files:/share
+      - ./services/vocab-configs/:/app
+networks:
+  ldes-consumers:
+    name: ldes-consumers

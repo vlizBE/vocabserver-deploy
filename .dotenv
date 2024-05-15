@@ -1,0 +1,1 @@
+BUILD_TAG="latest" # used in the docker-compose.yml file defaults to latest if not defined
