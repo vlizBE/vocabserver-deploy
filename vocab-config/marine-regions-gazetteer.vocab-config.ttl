@@ -1,0 +1,9 @@
+@prefix ns1: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns2: <http://dbpedia.org/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://my-application.com/vocabularies/66448E1EAE95225DC83BA269> a <http://mu.semte.ch/vocabularies/ext/VocabularyMeta> ;
+    rdfs:label "MarineRegions.org : Gazetteer «LDES»" ;
+    ns2:alias "https://my-application.com/vocabulary-alias/marine-regions" ;
+    ns1:uuid "66448E1EAE95225DC83BA269" .
+
