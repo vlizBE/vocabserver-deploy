@@ -11,7 +11,7 @@ services:
     logging: *default-logging
   identifier:
     ports:
-      - 0.0.0.0:3033:80
+      - 0.0.0.0:${HOST_PORT_IDENTIFIER_SERVICE:-3033}:${CONTAINER_PORT_IDENTIFIER_SERVICE:-80}
     image: semtech/mu-identifier:1.10.1
     environment:
       SESSION_COOKIE_SECURE: "on"
@@ -37,7 +37,7 @@ services:
   database:
     image: semtech/mu-authorization:0.6.0-beta.8
     environment:
-      MU_SPARQL_ENDPOINT: "http://triplestore:8890/sparql"
+      MU_SPARQL_ENDPOINT: "http://triplestore:${HOST_PORT_DATABASE_SERVICE:-8890}/sparql"
     volumes:
       - ./config/authorization:/config
     networks:
@@ -114,7 +114,7 @@ services:
       - ./services/vocab-fetch/:/app
     # Run in dev mode to circument memory limitations
     environment:
-      MU_VIRTUOSO_ENDPOINT: "http://triplestore:8890/sparql"
+      MU_VIRTUOSO_ENDPOINT: "http://triplestore:${HOST_PORT_DATABASE_SERVICE:-8890}/sparql"
       UPDATE_DATASET_DUMP_CRON_PATTERN: "5 * * * *" # hourly
       MODE: "development"
     restart: always
@@ -125,9 +125,9 @@ services:
       - ./data/vocab-fetch:/share
       - ./services/content-unification/:/app
     environment:
-      MU_SPARQL_ENDPOINT: "http://database:8890/sparql"
-      MU_SPARQL_UPDATEPOINT:  "http://triplestore:8890/sparql"
-      MU_AUTH_ENDPOINT: "http://database:8890/sparql"
+      MU_SPARQL_ENDPOINT: "http://database:${HOST_PORT_DATABASE_SERVICE:-8890}/sparql"
+      MU_SPARQL_UPDATEPOINT:  "http://triplestore:${HOST_PORT_DATABASE_SERVICE:-8890}/sparql"
+      MU_AUTH_ENDPOINT: "http://database:${HOST_PORT_DATABASE_SERVICE:-8890}/sparql"
       # Run in dev mode to circumvent memory limitations
       MODE: "development"
     restart: always
@@ -154,9 +154,9 @@ services:
     environment:
       MU_APPLICATION_FILE_STORAGE_PATH: "vocab-configs/"
       MODE: "development"
-      MU_SPARQL_ENDPOINT: "http://database:8890/sparql"
-      MU_SPARQL_DIRECT_UPDATEPOINT:  "http://triplestore:8890/sparql"
-      MU_AUTH_ENDPOINT: "http://database:8890/sparql"
+      MU_SPARQL_ENDPOINT: "http://database:${HOST_PORT_DATABASE_SERVICE:-8890}/sparql"
+      MU_SPARQL_DIRECT_UPDATEPOINT:  "http://triplestore:${HOST_PORT_DATABASE_SERVICE:-8890}/sparql"
+      MU_AUTH_ENDPOINT: "http://database:${HOST_PORT_DATABASE_SERVICE:-8890}/sparql"
     volumes:
       - ./data/files:/share
       - ./services/vocab-configs/:/app

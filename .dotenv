@@ -1,1 +1,4 @@
 BUILD_TAG="1.1.0" # used in the docker-compose.yml file defaults to latest if not defined
+HOST_PORT_IDENTIFIER_SERVICE="3033" # used in the docker-compose.yml file defaults to 3033 if not defined
+CONTAINER_PORT_IDENTIFIER_SERVICE="80" # used in the docker-compose.yml file defaults to 80 if not defined
+HOST_PORT_DATABASE_SERVICE="8890" # used in the docker-compose.yml file defaults to 8890 if not defined
