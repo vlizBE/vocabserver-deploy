@@ -1,0 +1,45 @@
+@prefix ns1: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns2: <http://www.w3.org/ns/shacl#> .
+@prefix ns3: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix ns4: <http://rdfs.org/ns/void#> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://my-application.com/vocabularies/66446E0C2A82190938FA8F2B> a ns3:VocabularyMeta ;
+    rdfs:label "VLIZ-DAMS : Licenses «dump»" ;
+    ns1:uuid "66446E0C2A82190938FA8F2B" ;
+    ns3:mappingShape <https://my-application.com/shacl-node-shape/664478572A82190938FA8F64> ;
+    ns3:sourceDataset <https://my-application.com/dataset/66446E0C2A82190938FA8F2C> .
+
+<https://my-application.com/dataset/66446E0C2A82190938FA8F2C> a ns4:Dataset ;
+    ns1:uuid "66446E0C2A82190938FA8F2C" ;
+    ns3:dereferenceMembers "false" ;
+    ns3:maxRequests 120 ;
+    ns6:type <http://vocabsearch.data.gift/dataset-types/FileDump> ;
+    ns4:feature <http://www.w3.org/ns/formats/Turtle> ;
+    ns5:page <https://raw.githubusercontent.com/vlizBE/vocab-term-registry/main/dams/media-licenses.ttl> .
+
+<https://my-application.com/shacl-node-shape/664478572A82190938FA8F64> a ns2:NodeShape ;
+    ns1:uuid "664478572A82190938FA8F64" ;
+    ns2:property <https://my-application.com/shacl-property-shape/664478572A82190938FA8F65>,
+        <https://my-application.com/shacl-property-shape/664478572A82190938FA8F66>,
+        <https://my-application.com/shacl-property-shape/664478572A82190938FA8F67> ;
+    ns2:targetClass <http://creativecommons.org/ns#License> .
+
+<https://my-application.com/shacl-property-shape/664478572A82190938FA8F65> a ns2:PropertyShape ;
+    ns1:uuid "664478572A82190938FA8F65" ;
+    ns2:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
+    ns2:path "<http://schema.org/name>" .
+
+<https://my-application.com/shacl-property-shape/664478572A82190938FA8F66> a ns2:PropertyShape ;
+    ns1:uuid "664478572A82190938FA8F66" ;
+    ns2:description "http://vocab-server.com/tagLabel" ;
+    ns2:path "<http://schema.org/description>" .
+
+<https://my-application.com/shacl-property-shape/664478572A82190938FA8F67> a ns2:PropertyShape ;
+    ns1:uuid "664478572A82190938FA8F67" ;
+    ns2:description "http://vocab-server.com/tagLabel" ;
+    ns2:path "<http://schema.org/alternateName>" .
+

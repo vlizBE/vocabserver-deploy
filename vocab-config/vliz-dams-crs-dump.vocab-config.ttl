@@ -1,0 +1,39 @@
+@prefix ns1: <http://www.w3.org/ns/shacl#> .
+@prefix ns2: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix ns5: <http://rdfs.org/ns/void#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://my-application.com/vocabularies/66446E532A82190938FA8F30> a ns4:VocabularyMeta ;
+    rdfs:label "VLIZ-DAMS : CRS «dump»" ;
+    ns2:uuid "66446E532A82190938FA8F30" ;
+    ns4:mappingShape <https://my-application.com/shacl-node-shape/664478372A82190938FA8F5B> ;
+    ns4:sourceDataset <https://my-application.com/dataset/66446E532A82190938FA8F31> .
+
+<https://my-application.com/dataset/66446E532A82190938FA8F31> a ns5:Dataset ;
+    ns2:uuid "66446E532A82190938FA8F31" ;
+    ns4:dereferenceMembers "false" ;
+    ns4:maxRequests 120 ;
+    ns3:type <http://vocabsearch.data.gift/dataset-types/FileDump> ;
+    ns5:feature <http://www.w3.org/ns/formats/Turtle> ;
+    ns6:page <https://raw.githubusercontent.com/vlizBE/vocab-term-registry/main/dams/coordinate-reference-systems.ttl> .
+
+<https://my-application.com/shacl-node-shape/664478372A82190938FA8F5B> a ns1:NodeShape ;
+    ns2:uuid "664478372A82190938FA8F5B" ;
+    ns1:property <https://my-application.com/shacl-property-shape/664478372A82190938FA8F5C>,
+        <https://my-application.com/shacl-property-shape/664478372A82190938FA8F5D> ;
+    ns1:targetClass <http://qudt.org/schema/qudt/CoordinateSystem> .
+
+<https://my-application.com/shacl-property-shape/664478372A82190938FA8F5C> a ns1:PropertyShape ;
+    ns2:uuid "664478372A82190938FA8F5C" ;
+    ns1:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
+    ns1:path "<http://schema.org/name>" .
+
+<https://my-application.com/shacl-property-shape/664478372A82190938FA8F5D> a ns1:PropertyShape ;
+    ns2:uuid "664478372A82190938FA8F5D" ;
+    ns1:description "http://vocab-server.com/tagLabel" ;
+    ns1:path "<http://schema.org/identifier>" .
+
