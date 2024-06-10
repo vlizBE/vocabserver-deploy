@@ -1,0 +1,6 @@
+PREFIX vex: <http://mu.semte.ch/vocabularies/ext/>
+SELECT DISTINCT ?voc  WHERE {
+  ?voc ?x ?y .
+  FILTER(regex(str(?voc),"my-application.com/vocabularies", "i"))
+  FILTER NOT EXISTS {?voc a vex:VocabularyMeta}
+}

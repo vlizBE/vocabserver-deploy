@@ -1,0 +1,13 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX voc: <http://mu.semte.ch/vocabularies/core/>
+PREFIX vex: <http://mu.semte.ch/vocabularies/ext/>
+
+SELECT ?lbl ?uuid ?alias WHERE {
+  ?voc a vex:VocabularyMeta.
+  OPTIONAL {
+    ?voc rdfs:label ?lbl;
+   	  voc:uuid ?uuid;
+      dbo:alias ?alias .
+  }
+}

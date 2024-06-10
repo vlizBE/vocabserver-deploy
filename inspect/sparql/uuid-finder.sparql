@@ -1,0 +1,6 @@
+PREFIX voc: <http://mu.semte.ch/vocabularies/core/>
+SELECT * WHERE {
+  BIND ("{{uuid}}" as ?re) 
+  ?any voc:uuid ?uuid.
+  filter(regex(?uuid, ?re, "i"))
+}

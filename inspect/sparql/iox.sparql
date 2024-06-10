@@ -1,0 +1,7 @@
+SELECT ?subj ?inp ?x ?outp ?obj WHERE {
+  BIND(<{{topic}}> as ?x)
+
+  { ?x ?outp ?obj .}  
+  UNION 
+  { ?subj ?inp ?x . } 
+}

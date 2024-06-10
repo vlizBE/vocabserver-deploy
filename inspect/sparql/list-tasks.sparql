@@ -1,0 +1,20 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?task ?pop ?op ?st str(?created) as ?since ?timediff WHERE {
+  ?task a <http://redpencil.data.gift/vocabularies/tasks/Task> ;
+    <http://redpencil.data.gift/vocabularies/tasks/operation> ?operation;
+  	adms:status ?status;
+  	dct:created ?created;
+  	dct:modified ?modified;
+    dct:isPartOf ?job.
+  ?job <http://redpencil.data.gift/vocabularies/tasks/operation> ?parent_operation.
+       
+  BIND( REPLACE( str(?operation) , '^.*/', '' ) AS ?op )
+  BIND( REPLACE( str(?parent_operation) , '^.*/', '' ) AS ?pop )
+  BIND( REPLACE( str(?status) , '^.*/', '' ) AS ?st )
+  BIND(str(?modified - ?created) as ?timediff)
+}
