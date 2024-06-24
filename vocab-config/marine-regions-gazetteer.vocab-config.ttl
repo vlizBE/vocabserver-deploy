@@ -1,28 +1,18 @@
-@prefix ns1: <http://www.w3.org/ns/shacl#> .
-@prefix ns2: <http://mu.semte.ch/vocabularies/ext/> .
-@prefix ns3: <http://mu.semte.ch/vocabularies/core/> .
-@prefix ns4: <http://dbpedia.org/ontology/> .
+@prefix ns1: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://my-application.com/vocabularies/66448E1EAE95225DC83BA269> a ns2:VocabularyMeta ;
-    rdfs:label "MarineRegions.org : Gazetteer «LDES»" ;
-    ns4:alias "https://my-application.com/vocabulary-alias/marine-regions" ;
-    ns3:uuid "66448E1EAE95225DC83BA269" ;
-    ns2:mappingShape <https://my-application.com/shacl-node-shape/6644A896AE95225DC83BA270> .
+<https://my-application.com/vocabularies/66695F65D9FBE1920538A719> a ns3:VocabularyMeta ;
+    rdfs:label "ldes marine regions" ;
+    ns1:uuid "66695F65D9FBE1920538A719" ;
+    ns3:sourceDataset <https://my-application.com/dataset/66695F66D9FBE1920538A71A> .
 
-<https://my-application.com/shacl-node-shape/6644A896AE95225DC83BA270> a ns1:NodeShape ;
-    ns3:uuid "6644A896AE95225DC83BA270" ;
-    ns1:property <https://my-application.com/shacl-property-shape/6644A897AE95225DC83BA271>,
-        <https://my-application.com/shacl-property-shape/6644A897AE95225DC83BA272> ;
-    ns1:targetClass <http://marineregions.org/ns/ontology#MRGeoObject> .
-
-<https://my-application.com/shacl-property-shape/6644A897AE95225DC83BA271> a ns1:PropertyShape ;
-    ns3:uuid "6644A897AE95225DC83BA271" ;
-    ns1:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
-    ns1:path "<http://www.w3.org/2004/02/skos/core#prefLabel>" .
-
-<https://my-application.com/shacl-property-shape/6644A897AE95225DC83BA272> a ns1:PropertyShape ;
-    ns3:uuid "6644A897AE95225DC83BA272" ;
-    ns1:description "http://vocab-server.com/tagLabel" ;
-    ns1:path "<http://www.w3.org/2004/02/skos/core#altLabel>" .
-
+<https://my-application.com/dataset/66695F66D9FBE1920538A71A> a <http://rdfs.org/ns/void#Dataset> ;
+    ns1:uuid "66695F66D9FBE1920538A71A" ;
+    ns3:dereferenceMembers "true" ;
+    ns3:maxRequests 20 ;
+    ns4:type <http://vocabsearch.data.gift/dataset-types/LDES> ;
+    ns2:page <https://marineregions.org/feed> .
