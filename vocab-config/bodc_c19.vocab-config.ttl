@@ -1,0 +1,31 @@
+@prefix ns1: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix ns2: <http://www.w3.org/ns/shacl#> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://my-application.com/vocabularies/6686AE6064C5DC84AC7D0257> a ns1:VocabularyMeta ;
+    rdfs:label "marineregions" ;
+    ns4:uuid "6686AE6064C5DC84AC7D0257" ;
+    ns1:mappingShape <https://my-application.com/shacl-node-shape/6686B3F164C5DC84AC7D0277> ;
+    ns1:sourceDataset <https://my-application.com/dataset/6686AE6164C5DC84AC7D0258> .
+
+<https://my-application.com/dataset/6686AE6164C5DC84AC7D0258> a <http://rdfs.org/ns/void#Dataset> ;
+    ns4:uuid "6686AE6164C5DC84AC7D0258" ;
+    ns1:dereferenceMembers "true" ;
+    ns1:maxRequests 60 ;
+    ns5:type <http://vocabsearch.data.gift/dataset-types/LDES> ;
+    ns3:page <https://marineregions.org/feed> .
+
+<https://my-application.com/shacl-node-shape/6686B3F164C5DC84AC7D0277> a ns2:NodeShape ;
+    ns4:uuid "6686B3F164C5DC84AC7D0277" ;
+    ns2:property <https://my-application.com/shacl-property-shape/6686B3F164C5DC84AC7D0278> ;
+    ns2:targetClass <http://marineregions.org/ns/ontology#MRGeoObject> .
+
+<https://my-application.com/shacl-property-shape/6686B3F164C5DC84AC7D0278> a ns2:PropertyShape ;
+    ns4:uuid "6686B3F164C5DC84AC7D0278" ;
+    ns2:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
+    ns2:path "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" .
+

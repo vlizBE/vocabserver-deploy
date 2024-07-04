@@ -1,0 +1,37 @@
+@prefix ns1: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix ns4: <http://www.w3.org/ns/shacl#> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://my-application.com/vocabularies/6686ADEA64C5DC84AC7D0251> a ns3:VocabularyMeta ;
+    rdfs:label "bodc_p06" ;
+    ns1:uuid "6686ADEA64C5DC84AC7D0251" ;
+    ns3:mappingShape <https://my-application.com/shacl-node-shape/6686B23F64C5DC84AC7D026B> ;
+    ns3:sourceDataset <https://my-application.com/dataset/6686ADEA64C5DC84AC7D0252> .
+
+<https://my-application.com/dataset/6686ADEA64C5DC84AC7D0252> a <http://rdfs.org/ns/void#Dataset> ;
+    ns1:uuid "6686ADEA64C5DC84AC7D0252" ;
+    ns3:dereferenceMembers "true" ;
+    ns3:maxRequests 60 ;
+    ns2:type <http://vocabsearch.data.gift/dataset-types/LDES> ;
+    ns5:page <https://vocab.nerc.ac.uk/ldes/P06/> .
+
+<https://my-application.com/shacl-node-shape/6686B23F64C5DC84AC7D026B> a ns4:NodeShape ;
+    ns1:uuid "6686B23F64C5DC84AC7D026B" ;
+    ns4:property <https://my-application.com/shacl-property-shape/6686B23F64C5DC84AC7D026C>,
+        <https://my-application.com/shacl-property-shape/6686B23F64C5DC84AC7D026D> ;
+    ns4:targetClass <http://www.w3.org/2004/02/skos/core#Concept> .
+
+<https://my-application.com/shacl-property-shape/6686B23F64C5DC84AC7D026C> a ns4:PropertyShape ;
+    ns1:uuid "6686B23F64C5DC84AC7D026C" ;
+    ns4:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
+    ns4:path "<http://www.w3.org/2004/02/skos/core#prefLabel>" .
+
+<https://my-application.com/shacl-property-shape/6686B23F64C5DC84AC7D026D> a ns4:PropertyShape ;
+    ns1:uuid "6686B23F64C5DC84AC7D026D" ;
+    ns4:description "http://vocab-server.com/tagLabel" ;
+    ns4:path "<http://www.w3.org/2004/02/skos/core#altLabel>" .
+
