@@ -7,7 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://my-application.com/vocabularies/6686ADEA64C5DC84AC7D0251> a ns3:VocabularyMeta ;
-    rdfs:label "bodc_p06" ;
+    rdfs:label "bodc_s25" ;
     ns1:uuid "6686ADEA64C5DC84AC7D0251" ;
     ns3:mappingShape <https://my-application.com/shacl-node-shape/6686B23F64C5DC84AC7D026B> ;
     ns3:sourceDataset <https://my-application.com/dataset/6686ADEA64C5DC84AC7D0252> .
@@ -17,7 +17,7 @@
     ns3:dereferenceMembers "true" ;
     ns3:maxRequests 60 ;
     ns2:type <http://vocabsearch.data.gift/dataset-types/LDES> ;
-    ns5:page <https://vocab.nerc.ac.uk/ldes/P06/> .
+    ns5:page <https://vocab.nerc.ac.uk/ldes/S25/> .
 
 <https://my-application.com/shacl-node-shape/6686B23F64C5DC84AC7D026B> a ns4:NodeShape ;
     ns1:uuid "6686B23F64C5DC84AC7D026B" ;
