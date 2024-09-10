@@ -1,0 +1,39 @@
+@prefix ns1: <http://www.w3.org/ns/shacl#> .
+@prefix ns2: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix ns3: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns4: <http://dbpedia.org/ontology/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://my-application.com/vocabularies/6686AE6064C5DC84AC7D0257> a ns2:VocabularyMeta ;
+    rdfs:label "marineregions" ;
+    ns4:alias "https://my-application.com/vocabulary-alias/marineregions" ;
+    ns3:uuid "6686AE6064C5DC84AC7D0257" ;
+    ns2:mappingShape <https://my-application.com/shacl-node-shape/6686B3F164C5DC84AC7D0277> ;
+    ns2:sourceDataset <https://my-application.com/dataset/6686AE6164C5DC84AC7D0258> .
+
+<https://my-application.com/dataset/6686AE6164C5DC84AC7D0258> a <http://rdfs.org/ns/void#Dataset> ;
+    ns3:uuid "6686AE6164C5DC84AC7D0258" ;
+    ns2:dereferenceMembers "true" ;
+    ns2:maxRequests 60 ;
+    ns6:type <http://vocabsearch.data.gift/dataset-types/LDES> ;
+    ns5:page <https://marineregions.org/feed> .
+
+<https://my-application.com/shacl-node-shape/6686B3F164C5DC84AC7D0277> a ns1:NodeShape ;
+    ns3:uuid "6686B3F164C5DC84AC7D0277" ;
+    ns1:property <https://my-application.com/shacl-property-shape/6686B3F164C5DC84AC7D0278>,
+        <https://my-application.com/shacl-property-shape/66E0087E0359DD48B8A297ED> ;
+    ns1:targetClass <http://marineregions.org/ns/ontology#MRGeoObject> .
+
+<https://my-application.com/shacl-property-shape/6686B3F164C5DC84AC7D0278> a ns1:PropertyShape ;
+    ns3:uuid "6686B3F164C5DC84AC7D0278" ;
+    ns1:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
+    ns1:path "<http://www.w3.org/2004/02/skos/core#prefLabel>" .
+
+<https://my-application.com/shacl-property-shape/66E0087E0359DD48B8A297ED> a ns1:PropertyShape ;
+    ns3:uuid "66E0087E0359DD48B8A297ED" ;
+    ns1:description "http://vocab-server.com/tagLabel" ;
+    ns1:path "<http://www.w3.org/2004/02/skos/core#altLabel>" .
+
