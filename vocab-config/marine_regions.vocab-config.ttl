@@ -1,31 +1,44 @@
-@prefix ns1: <http://mu.semte.ch/vocabularies/ext/> .
-@prefix ns2: <http://mu.semte.ch/vocabularies/core/> .
-@prefix ns3: <http://xmlns.com/foaf/0.1/> .
-@prefix ns4: <http://www.w3.org/ns/shacl#> .
+@prefix ns1: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns2: <http://www.w3.org/ns/shacl#> .
+@prefix ns3: <http://dbpedia.org/ontology/> .
+@prefix ns4: <http://mu.semte.ch/vocabularies/ext/> .
 @prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://my-application.com/vocabularies/677FA5AC4E1BC7EBA92CB5C9> a ns1:VocabularyMeta ;
-    rdfs:label "marineregions" ;
-    ns2:uuid "677FA5AC4E1BC7EBA92CB5C9" ;
-    ns1:mappingShape <https://my-application.com/shacl-node-shape/677FA6284E1BC7EBA92CB5CD> ;
-    ns1:sourceDataset <https://my-application.com/dataset/677FA5AC4E1BC7EBA92CB5CA> .
+<https://my-application.com/vocabularies/681DBC5D3959821F7E0EE243> a ns4:VocabularyMeta ;
+    rdfs:label "MarineRegions.org (LDES)" ;
+    ns3:alias "https://my-application.com/vocabulary-alias/marine-regions" ;
+    ns1:uuid "681DBC5D3959821F7E0EE243" ;
+    ns4:mappingShape <https://my-application.com/shacl-node-shape/681DDFF53959821F7E0EE247> ;
+    ns4:sourceDataset <https://my-application.com/dataset/681DBC5D3959821F7E0EE244> .
 
-<https://my-application.com/dataset/677FA5AC4E1BC7EBA92CB5CA> a <http://rdfs.org/ns/void#Dataset> ;
-    ns2:uuid "677FA5AC4E1BC7EBA92CB5CA" ;
-    ns1:dereferenceMembers "false" ;
-    ns1:maxRequests 60 ;
+<https://my-application.com/dataset/681DBC5D3959821F7E0EE244> a <http://rdfs.org/ns/void#Dataset> ;
+    ns1:uuid "681DBC5D3959821F7E0EE244" ;
+    ns4:maxRequests 60 ;
     ns5:type <http://vocabsearch.data.gift/dataset-types/LDES> ;
-    ns3:page <https://marineregions.org/feed> .
+    ns6:page <https://marineregions.org/feed.ttl> .
 
-<https://my-application.com/shacl-node-shape/677FA6284E1BC7EBA92CB5CD> a ns4:NodeShape ;
-    ns2:uuid "677FA6284E1BC7EBA92CB5CD" ;
-    ns4:property <https://my-application.com/shacl-property-shape/677FA6284E1BC7EBA92CB5CE>,
-        <https://my-application.com/shacl-property-shape/677FA6284E1BC7EBA92CB5CF> ;
-    ns4:targetClass <http://marineregions.org/ns/ontology#MRGeoObject> .
+<https://my-application.com/shacl-node-shape/681DDFF53959821F7E0EE247> a ns2:NodeShape ;
+    ns1:uuid "681DDFF53959821F7E0EE247" ;
+    ns2:property <https://my-application.com/shacl-property-shape/681DDFF53959821F7E0EE248>,
+        <https://my-application.com/shacl-property-shape/681DDFF53959821F7E0EE249>,
+        <https://my-application.com/shacl-property-shape/681DDFF53959821F7E0EE24A> ;
+    ns2:targetClass <http://marineregions.org/ns/ontology#MRGeoObject> .
 
-<https://my-application.com/shacl-property-shape/677FA6284E1BC7EBA92CB5CF> a ns4:PropertyShape ;
-    ns2:uuid "677FA6284E1BC7EBA92CB5CF" ;
-    ns4:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
-    ns4:path "<http://www.w3.org/2004/02/skos/core#prefLabel>" .
+<https://my-application.com/shacl-property-shape/681DDFF53959821F7E0EE248> a ns2:PropertyShape ;
+    ns1:uuid "681DDFF53959821F7E0EE248" ;
+    ns2:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
+    ns2:path "<http://www.w3.org/2004/02/skos/core#prefLabel>" .
+
+<https://my-application.com/shacl-property-shape/681DDFF53959821F7E0EE249> a ns2:PropertyShape ;
+    ns1:uuid "681DDFF53959821F7E0EE249" ;
+    ns2:description "http://vocab-server.com/tagLabel" ;
+    ns2:path "<http://www.w3.org/2004/02/skos/core#altLabel>" .
+
+<https://my-application.com/shacl-property-shape/681DDFF53959821F7E0EE24A> a ns2:PropertyShape ;
+    ns1:uuid "681DDFF53959821F7E0EE24A" ;
+    ns2:description "http://vocab-server.com/tagLabel" ;
+    ns2:path "<http://www.w3.org/2000/01/rdf-schema#label>" .
+
