@@ -1,0 +1,35 @@
+@prefix ns1: <http://www.w3.org/ns/shacl#> .
+@prefix ns2: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns3: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://my-application.com/vocabularies/68510D6926082D12FF7701B0> a ns3:VocabularyMeta ;
+    rdfs:label "marineinfo persons (LDES)" ;
+    ns2:uuid "68510D6926082D12FF7701B0" ;
+    ns3:mappingShape <https://my-application.com/shacl-node-shape/685119D626082D12FF7701B4> ;
+    ns3:sourceDataset <https://my-application.com/dataset/68510D6926082D12FF7701B1> .
+
+<https://my-application.com/dataset/68510D6926082D12FF7701B1> a <http://rdfs.org/ns/void#Dataset> ;
+    ns2:uuid "68510D6926082D12FF7701B1" ;
+    ns3:maxRequests 120 ;
+    ns5:type <http://vocabsearch.data.gift/dataset-types/LDES> ;
+    ns4:page <http://dev.marineinfo.org:93/feed/person> .
+
+<https://my-application.com/shacl-node-shape/685119D626082D12FF7701B4> a ns1:NodeShape ;
+    ns2:uuid "685119D626082D12FF7701B4" ;
+    ns1:property <https://my-application.com/shacl-property-shape/685119D626082D12FF7701B5>,
+        <https://my-application.com/shacl-property-shape/685119D626082D12FF7701B6> ;
+    ns1:targetClass <https://schema.org/Person> .
+
+<https://my-application.com/shacl-property-shape/685119D626082D12FF7701B5> a ns1:PropertyShape ;
+    ns2:uuid "685119D626082D12FF7701B5" ;
+    ns1:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
+    ns1:path "<https://schema.org/givenName>" .
+
+<https://my-application.com/shacl-property-shape/685119D626082D12FF7701B6> a ns1:PropertyShape ;
+    ns2:uuid "685119D626082D12FF7701B6" ;
+    ns1:description "http://vocab-server.com/tagLabel" ;
+    ns1:path "<https://schema.org/familyName>" .
