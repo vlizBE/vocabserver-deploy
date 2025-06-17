@@ -1,0 +1,29 @@
+@prefix ns1: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://www.w3.org/ns/shacl#> .
+@prefix ns4: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://my-application.com/vocabularies/68515B1872316B45119607D0> a ns4:VocabularyMeta ;
+    rdfs:label "marineinfo events (ldes)" ;
+    ns1:uuid "68515B1872316B45119607D0" ;
+    ns4:mappingShape <https://my-application.com/shacl-node-shape/68515D8472316B45119607D4> ;
+    ns4:sourceDataset <https://my-application.com/dataset/68515B1972316B45119607D1> .
+
+<https://my-application.com/dataset/68515B1972316B45119607D1> a <http://rdfs.org/ns/void#Dataset> ;
+    ns1:uuid "68515B1972316B45119607D1" ;
+    ns4:maxRequests 120 ;
+    ns5:type <http://vocabsearch.data.gift/dataset-types/LDES> ;
+    ns2:page <http://dev.marineinfo.org:93/feed/event> .
+
+<https://my-application.com/shacl-node-shape/68515D8472316B45119607D4> a ns3:NodeShape ;
+    ns1:uuid "68515D8472316B45119607D4" ;
+    ns3:property <https://my-application.com/shacl-property-shape/68515D8472316B45119607D5> ;
+    ns3:targetClass <http://purl.org/dc/dcmitype/#Event> .
+
+<https://my-application.com/shacl-property-shape/68515D8472316B45119607D5> a ns3:PropertyShape ;
+    ns1:uuid "68515D8472316B45119607D5" ;
+    ns3:description "http://www.w3.org/2004/02/skos/core#prefLabel" ;
+    ns3:path "<https://schema.org/name>" .
