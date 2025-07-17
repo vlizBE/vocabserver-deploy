@@ -1,0 +1,23 @@
+[
+  {
+    "name": "VLIZ-DAMS CRS",
+    "description": "A curated list of licenses used in the VLIZ digital archive.",
+    "languages": ["en", "nl","fr","de"],
+    "objects": 15,
+    "code_copy": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n    <title>Search</title>\n    <script type=\"module\" src=\"http://vocab.web.vliz.be:3033/webcomponent/main.js\"></script>\n  </head>\n  <body>\n    <h1>Search</h1>\n    <vocab-search-bar\n      source-vocabularies=\"https://my-application.com/vocabulary-alias/vliz-dams-crs\"\n      search-endpoint=\"http://vocab.web.vliz.be:3033\">\n    </vocab-search-bar>\n  </body>\n</html>\n"
+  },
+  {
+    "name": "VLIZ-DAMS Licences",
+    "description": "A curated list of licenses used in the VLIZ digital archive.",
+    "languages": ["en", "nl", "fr", "de"],
+    "objects": 9,
+    "code_copy": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n    <title>Search</title>\n    <script type=\"module\" src=\"http://vocab.web.vliz.be:3033/webcomponent/main.js\"></script>\n  </head>\n  <body>\n    <h1>Search</h1>\n    <vocab-search-bar\n      source-vocabularies=\"https://my-application.com/vocabulary-alias/vliz-dams-licenses\"\n      search-endpoint=\"http://vocab.web.vliz.be:3033\">\n    </vocab-search-bar>\n  </body>\n</html>\n"
+  },
+  {
+    "name": "Marine Regions",
+    "description": "A curated list of marine regions taken from marineregions.org",
+    "languages": ["en", "nl", "fr", "de"],
+    "objects": 64357,
+    "code_copy": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n    <title>Search</title>\n    <script type=\"module\" src=\"http://vocab.web.vliz.be:3033/webcomponent/main.js\"></script>\n  </head>\n  <body>\n    <h1>Search</h1>\n    <vocab-search-bar\n      source-vocabularies=\"https://my-application.com/vocabulary-alias/marine-regions\"\n      search-endpoint=\"http://vocab.web.vliz.be:3033\">\n    </vocab-search-bar>\n  </body>\n</html>\n"
+  }
+]
