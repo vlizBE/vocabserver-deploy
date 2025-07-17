@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vocab Term Lookup Server</title>
+    <script src="https://cdn.jsdelivr.net/npm/@radix-ui/react-slot"></script>
+    <script src="https://cdn.jsdelivr.net/npm/shadcn-ui"></script>
+    <script>
+      window.global = window;
+    </script>
+    <style>
+      .card {
+          background-color: #ffffff;
+          padding: 1.5rem;
+          border-radius: 1rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          margin-bottom: 1rem;
+          transition: transform 0.2s, box-shadow 0.2s;
+          font-size: 0.875rem; /* Reduced text size */
+      }
+
+      .card-title {
+          font-size: 1.525rem; /* Slightly smaller title */
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+      }
+
+      .card-description {
+          color: #4b5563; /* Darker gray for better readability */
+          margin-bottom: 1rem;
+          font-size: smaller; /* Smaller description text */
+      }
+      
+      .pill {
+          display: inline-block;
+          background-color: #3b82f6;
+          color: white;
+          padding: 0.25rem 0.5rem;
+          border-radius: 9999px;
+          font-size: 0.875rem;
+          margin-right: 0.5rem;
+      }
+
+      .pill.bg-red-500 {
+          background-color: #1e3a8a; /* Changed to dark blue */
+      }
+      
+      .highlight {
+          color: #ef4444;
+          font-weight: bold;
+      }
+
+      .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.5rem;
+      }
+
+      .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-header {
+          font-size: 1.25rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+      }
+
+      .card-description {
+          color: #6b7280;
+          margin-bottom: 1rem;
+      }
+
+      .card-footer button {
+          background-color: #3b82f6;
+          color: white;
+          padding: 0.5rem 1rem;
+          border: none;
+          border-radius: 0.5rem;
+          cursor: pointer;
+          transition: background-color 0.2s;
+      }
+
+      .card-footer button:hover {
+          background-color: #2563eb;
+      }
+      .searchbox {
+          border: 1px solid #d1d5db; /* Light gray border */
+          border-radius: 0.5rem; /* Rounded corners */
+          padding: 0.5rem 1rem; /* Padding for input */
+          background-color: #f3f4f6; /* Light background color */
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+          width: 96%; /* Full width */
+          margin-right: 1rem;;
+          font-size: 1rem; /* Font size */
+          color: #374151; /* Text color */
+          margin-bottom: 2rem; /* Margin at the bottom */
+      }
+
+      .searchbox:focus {
+          outline: none; /* Remove default outline */
+          border-color: #3b82f6; /* Blue border on focus */
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Focus shadow */
+      }
+
+      .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .modal-content {
+          background-color: white;
+          padding: 2rem;
+          border-radius: 0.5rem;
+          width: 90%;
+          height: 80%;
+          max-width: 80%;
+          position: relative;
+      }
+
+      .modal-content h2 {
+          margin-top: 0;
+      }
+
+      pre {
+          background-color: #f3f4f6;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          overflow-x: auto;
+      }
+
+    </style>
+  </head>
+  <body class="bg-gray-50 p-8 font-sans">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-6">
+          
+          <div class="flex justify-between items-center">
+              <h1 class="text-4xl font-bold">Vocab Term Lookup Server</h1>
+              <div class="mb-4">
+              <p class="text-lg text-gray-700">
+                  Explore a wide range of vocabulary cards designed to enhance your learning experience. Use the search bar below to quickly find the vocabularies you need.
+                  VocabServer is an application designed to provide a comprehensive vocabulary lookup service. It enables users to explore and manage vocabularies efficiently, offering tools for searching, testing, and embedding vocabulary data into various applications.   
+              </p>
+          </div>
+              <div class="relative mb-2">
+                  <input
+                      type="text"
+                      id="search-bar"
+                      placeholder="Search for vocabularies listed below..."
+                      class="searchbox"
+                      oninput="filterVocabularies()"
+                  />
+              </div>
+          </div>
+      </div>
+      <div id="vocab-list" class="grid"></div>
+    </div>
+
+    <script>
+      fetch('https://raw.githubusercontent.com/vlizBE/vocabserver-deploy/refs/heads/main/vocabterm_lookup_widget_list.json')
+          .then(response => response.json())
+          .then(vocabularies => {
+              const vocabList = document.getElementById('vocab-list');
+              vocabularies.forEach(vocab => {
+                  const card = document.createElement('div');
+                  card.className = 'card';
+      
+                  card.innerHTML = `
+                      <div class="card-header">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <h2 class="card-title" style="margin-bottom: 0;">${vocab.name}</h2>
+                            <div class="pill-container" style="margin-top: 0;">
+                              ${vocab.languages.map(lang => `<span class="pill">${lang}</span>`).join('')}
+                            </div>
+                            </div>
+                            <div class="pill-container" style="margin-top: 0;">
+                              <span class="pill bg-red-500">${vocab.objects} objects</span>
+                            </div>
+                          <p class="card-description">${vocab.description}</p>
+                      </div>
+                      <div class="card-footer">
+                          <button class="test-vocab-btn" data-code='${vocab.code_copy.replace(/'/g, "'")}'>Test out vocabulary</button>
+                      </div>
+                  `;
+      
+                  vocabList.appendChild(card);
+              });
+
+              document.addEventListener('click', function (e) {
+                  if (e.target.closest('.test-vocab-btn')) {
+                      const btn = e.target.closest('.test-vocab-btn');
+                      const code = btn.getAttribute('data-code');
+                      const modal = document.createElement('div');
+                      modal.className = 'modal';
+                      modal.innerHTML = `
+                          <div class="modal-content">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <h2>Widget</h2>
+                                <span class="close" style="cursor:pointer;font-size:1.5rem;">&times;</span>
+                            </div>
+                            <div style="position: relative;">
+                            <iframe srcdoc="${code.replace(/"/g, '&quot;')}" style="width:100%;height:300px;border:1px solid #e5e7eb;border-radius:0.5rem;"></iframe>
+                            <button id="copy-embed-btn" style="position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2; padding: 0.25rem 0.75rem; border-radius: 0.375rem; border: none; background: #3b82f6; color: white; cursor: pointer;">
+                                Copy
+                            </button>
+                            </div>
+                          </div>
+                      `;
+                      document.body.appendChild(modal);
+                      modal.querySelector('.close').addEventListener('click', () => {
+                          document.body.removeChild(modal);
+                      });
+
+                    document.getElementById('copy-embed-btn').addEventListener('click', () => {
+                        const code = btn.getAttribute('data-code');
+                        navigator.clipboard.writeText(code).then(() => {
+                            const btn = document.getElementById('copy-embed-btn');
+                            btn.textContent = 'Copied to clipboard';
+                            setTimeout(() => (btn.textContent = 'Copy'), 2000);
+                        }).catch(err => {
+                            console.error('Failed to copy text: ', err);
+                        });
+                    });
+                  }
+              });
+
+          });
+
+    function filterVocabularies() {
+      const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        card.style.display = title.includes(searchTerm) ? '' : 'none';
+      });
+    }
+    </script>
+  </body>
+</html>
