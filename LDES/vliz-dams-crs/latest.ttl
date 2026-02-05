@@ -51,8 +51,8 @@
   ] ;
   tree:view <> .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/28992/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/28992/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/28992/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/28992/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/28992> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -60,8 +60,8 @@
     schema:identifier "epsg:28992"^^xsd:string ;
     schema:sameAs epsg:28992 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/28991/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/28991/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/28991/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/28991/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/28991> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -69,8 +69,8 @@
     schema:identifier "epsg:28991"^^xsd:string ;
     schema:sameAs epsg:28991 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/21500/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/21500/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/21500/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/21500/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/21500> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -78,8 +78,8 @@
     schema:identifier "epsg:21500"^^xsd:string ;
     schema:sameAs epsg:21500 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/31370/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/31370/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/31370/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/31370/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/31370> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -87,8 +87,8 @@
     schema:identifier "epsg:31370"^^xsd:string ;
     schema:sameAs epsg:31370 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/4230/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/4230/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/4230/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/4230/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/4230> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -96,8 +96,8 @@
     schema:identifier "epsg:4230"^^xsd:string ;
     schema:sameAs epsg:4230 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/3812/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/3812/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/3812/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/3812/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/3812> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -105,8 +105,8 @@
     schema:identifier "epsg:3812"^^xsd:string ;
     schema:sameAs epsg:3812 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/3035/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/3035/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/3035/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/3035/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/3035> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -114,8 +114,8 @@
     schema:identifier "epsg:3035"^^xsd:string ;
     schema:sameAs epsg:3035 .
 
-<feed> tree:member <https://epsg.io/54009/1/> .
-<https://epsg.io/54009/1/>
+<feed> tree:member <https://epsg.io/54009/#1> .
+<https://epsg.io/54009/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <https://epsg.io/54009> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -123,8 +123,8 @@
     schema:identifier "epsg:54009"^^xsd:string ;
     schema:sameAs epsg:54009 .
 
-<feed> tree:member <https://epsg.io/102018/1/> .
-<https://epsg.io/102018/1/>
+<feed> tree:member <https://epsg.io/102018/#1> .
+<https://epsg.io/102018/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <https://epsg.io/102018> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -132,8 +132,8 @@
     schema:identifier "epsg:102018"^^xsd:string ;
     schema:sameAs epsg:102018 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/4674/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/4674/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/4674/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/4674/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/4674> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -141,16 +141,16 @@
     schema:identifier "epsg:4674"^^xsd:string ;
     schema:sameAs epsg:4674 .
 
-<feed> tree:member <https://epsg.io/102021/1/> .
-<https://epsg.io/102021/1/>
+<feed> tree:member <https://epsg.io/102021/#1> .
+<https://epsg.io/102021/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <https://epsg.io/102021> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
     schema:name "South Pole Stereographic"@en, "Zuidpool stereografisch"@nl ;
     schema:identifier "epsg:102021"^^xsd:string .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/4326/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/4326/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/4326/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/4326/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/4326> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -158,8 +158,8 @@
     schema:identifier "epsg:4326"^^xsd:string ;
     schema:sameAs epsg:4326 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/3857/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/3857/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/3857/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/3857/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/3857> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -167,8 +167,8 @@
     schema:identifier "epsg:3857"^^xsd:string ;
     schema:sameAs epsg:3857 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/32631/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/32631/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/32631/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/32631/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/32631> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -176,8 +176,8 @@
     schema:identifier "epsg:32631"^^xsd:string ;
     schema:sameAs epsg:32631 .
 
-<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/32632/1/> .
-<http://www.opengis.net/def/crs/EPSG/0/32632/1/>
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/32632/#1> .
+<http://www.opengis.net/def/crs/EPSG/0/32632/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/32632> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
@@ -185,16 +185,16 @@
     schema:identifier "epsg:32632"^^xsd:string ;
     schema:sameAs epsg:32632 .
 
-<feed> tree:member <https://epsg.io/54004/1/> .
-<https://epsg.io/54004/1/>
+<feed> tree:member <https://epsg.io/54004/#1> .
+<https://epsg.io/54004/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <https://epsg.io/54004> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
     schema:name "World Mercator"@en, "World Mercator"@nl ;
     schema:identifier "epsg:54004"^^xsd:string .
 
-<feed> tree:member <https://epsg.io/54030/1/> .
-<https://epsg.io/54030/1/>
+<feed> tree:member <https://epsg.io/54030/#1> .
+<https://epsg.io/54030/#1>
     a qudt:CoordinateSystem ;
     dc:isVersionOf <https://epsg.io/54030> ;
     dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
