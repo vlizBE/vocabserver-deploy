@@ -8,7 +8,7 @@
 @prefix opengis: <http://www.opengis.net/def/crs/EPSG/0/> .
 @prefix epsg: <https://epsg.io/> .
 
-@base <https://vlizbe.github.io/LDES/vliz-dams-crs/latest.ttl> .
+@base <https://vlizbe.github.io/vocabserver-deploy/LDES/vliz-dams-crs/latest.ttl> .
 
 <>
     a tree:Node ;
