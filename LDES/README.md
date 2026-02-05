@@ -1,0 +1,1 @@
+This folder will contain temprorary LDES feeds until the live vocabserver can consume both LDES and static files at the same time without breaking.

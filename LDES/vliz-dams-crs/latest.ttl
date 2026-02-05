@@ -1,0 +1,202 @@
+@prefix tree: <https://w3id.org/tree#> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix schema: <http://schema.org/> .
+@prefix opengis: <http://www.opengis.net/def/crs/EPSG/0/> .
+@prefix epsg: <https://epsg.io/> .
+
+@base <https://vlizbe.github.io/LDES/vliz-dams-crs/latest.ttl> .
+
+<>
+    a tree:Node ;
+    
+    ldes:retentionPolicy [
+        a ldes:RetentionPolicy ;
+        ldes:versionAmount 100
+    ] .
+
+<feed>
+  a ldes:EventStream ;
+  ldes:timestampPath dc:modified ;
+  ldes:versionOfPath dc:isVersionOf ;
+  ldes:immutable 'false'^^xsd:boolean ;
+  ldes:pollingInterval '3600'^^xsd:integer ;
+  tree:shape [
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+      sh:path dc:isVersionOf
+    ],
+    [
+      sh:datatype xsd:dateTime ;
+      sh:minCount 1 ;
+      sh:path dc:modified
+    ],
+    [
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+      sh:path schema:name
+    ],
+    [
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+      sh:path schema:identifier
+    ] ;
+    sh:targetClass qudt:CoordinateSystem
+  ] ;
+  tree:view <> .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/28992/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/28992/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/28992> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Amersfoort/RD New"@en, "Amersfoort/RD Nieuw"@nl ;
+    schema:identifier "epsg:28992"^^xsd:string ;
+    schema:sameAs epsg:28992 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/28991/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/28991/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/28991> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Amersfoort/RD Old"@en, "Amersfoort/RD Oud"@nl ;
+    schema:identifier "epsg:28991"^^xsd:string ;
+    schema:sameAs epsg:28991 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/21500/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/21500/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/21500> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Belge 50/Belge Lambert 50"@en, "Belge 50/Belge Lambert 50"@nl ;
+    schema:identifier "epsg:21500"^^xsd:string ;
+    schema:sameAs epsg:21500 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/31370/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/31370/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/31370> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Belge 72/Belge Lambert 72"@en, "Belge 72/Belge Lambert 72"@nl ;
+    schema:identifier "epsg:31370"^^xsd:string ;
+    schema:sameAs epsg:31370 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/4230/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/4230/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/4230> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "ED50"@en, "ED50"@nl ;
+    schema:identifier "epsg:4230"^^xsd:string ;
+    schema:sameAs epsg:4230 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/3812/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/3812/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/3812> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "ETRS89/Belge Lambert"@en, "ETRS89/Belge Lambert"@nl ;
+    schema:identifier "epsg:3812"^^xsd:string ;
+    schema:sameAs epsg:3812 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/3035/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/3035/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/3035> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "ETRS89/LAEA"@en, "ETRS89/LAEA"@nl ;
+    schema:identifier "epsg:3035"^^xsd:string ;
+    schema:sameAs epsg:3035 .
+
+<feed> tree:member <https://epsg.io/54009/1/> .
+<https://epsg.io/54009/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <https://epsg.io/54009> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Mollweide"@en, "Mollweide"@nl ;
+    schema:identifier "epsg:54009"^^xsd:string ;
+    schema:sameAs epsg:54009 .
+
+<feed> tree:member <https://epsg.io/102018/1/> .
+<https://epsg.io/102018/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <https://epsg.io/102018> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "North Pole Stereographic"@en, "Noordpool Stereografisch"@nl ;
+    schema:identifier "epsg:102018"^^xsd:string ;
+    schema:sameAs epsg:102018 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/4674/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/4674/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/4674> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "SIRGAS 2000"@en, "SIRGAS 2000"@nl ;
+    schema:identifier "epsg:4674"^^xsd:string ;
+    schema:sameAs epsg:4674 .
+
+<feed> tree:member <https://epsg.io/102021/1/> .
+<https://epsg.io/102021/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <https://epsg.io/102021> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "South Pole Stereographic"@en, "Zuidpool stereografisch"@nl ;
+    schema:identifier "epsg:102021"^^xsd:string .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/4326/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/4326/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/4326> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "WGS84"@en, "WGS84"@nl ;
+    schema:identifier "epsg:4326"^^xsd:string ;
+    schema:sameAs epsg:4326 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/3857/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/3857/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/3857> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "WGS84/Pseudo Mercator"@en, "WGS84/Pseudo Mercator"@nl ;
+    schema:identifier "epsg:3857"^^xsd:string ;
+    schema:sameAs epsg:3857 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/32631/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/32631/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/32631> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "WGS84/UTM zone 31N"@en, "WGS84/UTM zone 31N"@nl ;
+    schema:identifier "epsg:32631"^^xsd:string ;
+    schema:sameAs epsg:32631 .
+
+<feed> tree:member <http://www.opengis.net/def/crs/EPSG/0/32632/1/> .
+<http://www.opengis.net/def/crs/EPSG/0/32632/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <http://www.opengis.net/def/crs/EPSG/0/32632> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "WGS84/UTM zone 32N"@en, "WGS84/UTM zone 32N"@nl ;
+    schema:identifier "epsg:32632"^^xsd:string ;
+    schema:sameAs epsg:32632 .
+
+<feed> tree:member <https://epsg.io/54004/1/> .
+<https://epsg.io/54004/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <https://epsg.io/54004> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "World Mercator"@en, "World Mercator"@nl ;
+    schema:identifier "epsg:54004"^^xsd:string .
+
+<feed> tree:member <https://epsg.io/54030/1/> .
+<https://epsg.io/54030/1/>
+    a qudt:CoordinateSystem ;
+    dc:isVersionOf <https://epsg.io/54030> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "World Robinson"@en, "World Robinson"@nl ;
+    schema:identifier "epsg:54030"^^xsd:string .
