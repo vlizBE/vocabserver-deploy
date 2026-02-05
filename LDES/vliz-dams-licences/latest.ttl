@@ -1,0 +1,130 @@
+@prefix tree: <https://w3id.org/tree#> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix schema: <http://schema.org/> .
+
+@base <https://vlizbe.github.io/vocabserver-deploy/LDES/vliz-dams-licences/latest.ttl> .
+
+<>
+    a tree:Node ;
+    
+    ldes:retentionPolicy [
+        a ldes:RetentionPolicy ;
+        ldes:versionAmount 100
+    ] .
+
+<feed>
+  a ldes:EventStream ;
+  ldes:timestampPath dc:modified ;
+  ldes:versionOfPath dc:isVersionOf ;
+  ldes:immutable 'false'^^xsd:boolean ;
+  ldes:pollingInterval '3600'^^xsd:integer ;
+  tree:shape [
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+      sh:path dc:isVersionOf
+    ],
+    [
+      sh:datatype xsd:dateTime ;
+      sh:minCount 1 ;
+      sh:path dc:modified
+    ],
+    [
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+      sh:path schema:name
+    ],
+    [
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+      sh:path schema:description
+    ],
+    [
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+      sh:path schema:alternateName
+    ] ;
+    sh:targetClass cc:License
+  ] ;
+  tree:view <> .
+
+<feed> tree:member <https://en.wikipedia.org/wiki/All_rights_reserved/1/> .
+<https://en.wikipedia.org/wiki/All_rights_reserved/1/>
+    a cc:License ;
+    dc:isVersionOf <https://en.wikipedia.org/wiki/All_rights_reserved> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "All rights reserved"@en, "Alle rechten voorbehouden"@nl ;
+    schema:description "Copyrighted work. This license does not disclose any of the Intelectual Property Rights (IPR) or database rights."@en, "Auteursrechtelijk beschermd werk. Deze licentie maakt geen enkele intellectuele eigendomsrechten (IPR) of databaserechten openbaar."@nl ;
+    schema:alternateName "allrightsreserved"^^xsd:string .
+
+<feed> tree:member <https://creativecommons.org/publicdomain/mark/1.0/version/1/> .
+<https://creativecommons.org/publicdomain/mark/1.0/version/1/>
+    a cc:License ;
+    dc:isVersionOf <https://creativecommons.org/publicdomain/mark/1.0/> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Creative Commons - Public Domain Mark 1.0"@en, "Creative Commons - Publiek domein 1.0"@nl ;
+    schema:description "No Known Copyright. The work is public 'according to our current knowledge' or 'as long as otherwise proved'. This license can be used for 'orphan works' or unlicensed work."@en, "Geen bekend auteursrecht. Het werk is openbaar 'volgens onze huidige kennis' of 'zolang het tegendeel bewezen is'. Deze licentie kan worden gebruikt voor 'verweesde werken' of werk zonder licentie."@nl ;
+    schema:alternateName "PDM 1.0"^^xsd:string .
+
+<feed> tree:member <https://creativecommons.org/publicdomain/zero/1.0/version/1/> .
+<https://creativecommons.org/publicdomain/zero/1.0/version/1/>
+    a cc:License ;
+    dc:isVersionOf <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Creative Commons - No Rights Reserved 1.0"@en, "Creative Commons - Geen rechten voorbehouden 1.0"@nl ;
+    schema:description "No Right Reserved. The work is explicitely completely open for everyone without the obligation to refer to someone."@en, "Geen recht voorbehouden. Het werk staat nadrukkelijk volledig open voor iedereen, zonder de verplichting om naar iemand te verwijzen."@nl ;
+    schema:alternateName "CC 0 1.0"^^xsd:string .
+
+<feed> tree:member <https://creativecommons.org/licenses/by/4.0/version/1/> .
+<https://creativecommons.org/licenses/by/4.0/version/1/>
+    a cc:License ;
+    dc:isVersionOf <https://creativecommons.org/licenses/by/4.0/> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Creative Commons - Attribution 4.0"@en, "Creative Commons - Naamsvermelding 4.0"@nl ;
+    schema:alternateName "CC BY 4.0"^^xsd:string .
+
+<feed> tree:member <https://creativecommons.org/licenses/by-sa/4.0/version/1/> .
+<https://creativecommons.org/licenses/by-sa/4.0/version/1/>
+    a cc:License ;
+    dc:isVersionOf <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Creative Commons - Attribution-ShareAlike 4.0"@en, "Creative Commons - Naamsvermelding-GelijkDelen 4.0"@nl ;
+    schema:alternateName "CC BY-SA 4.0"^^xsd:string .
+
+<feed> tree:member <https://creativecommons.org/licenses/by-nc/4.0/version/1/> .
+<https://creativecommons.org/licenses/by-nc/4.0/version/1/>
+    a cc:License ;
+    dc:isVersionOf <https://creativecommons.org/licenses/by-nc/4.0/> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Creative Commons - Attribution-NonCommercial 4.0"@en, "Creative Commons - Naamsvermelding-NietCommercieel 4.0"@nl ;
+    schema:alternateName "CC BY-NC 4.0"^^xsd:string .
+
+<feed> tree:member <https://creativecommons.org/licenses/by-nd/4.0/version/1/> .
+<https://creativecommons.org/licenses/by-nd/4.0/version/1/>
+    a cc:License ;
+    dc:isVersionOf <https://creativecommons.org/licenses/by-nd/4.0/> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Creative Commons - Attribution-NoDerivatives 4.0"@en, "Creative Commons - Naamsvermelding-GeenAfgeleideWerken 4.0"@nl ;
+    schema:alternateName "CC BY-ND 4.0"^^xsd:string .
+
+<feed> tree:member <https://creativecommons.org/licenses/by-nc-sa/4.0/version/1/> .
+<https://creativecommons.org/licenses/by-nc-sa/4.0/version/1/>
+    a cc:License ;
+    dc:isVersionOf <https://creativecommons.org/licenses/by-nc-sa/4.0/> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Creative Commons - Attribution-NonCommercial-ShareAlike 4.0"@en, "Creative Commons - Naamsvermelding-NietCommercieel-GelijkDelen 4.0"@nl ;
+    schema:alternateName "CC BY-NC-SA 4.0"^^xsd:string .
+
+<feed> tree:member <https://creativecommons.org/licenses/by-nc-nd/4.0/version/1/> .
+<https://creativecommons.org/licenses/by-nc-nd/4.0/version/1/>
+    a cc:License ;
+    dc:isVersionOf <https://creativecommons.org/licenses/by-nc-nd/4.0/> ;
+    dc:modified '2024-05-15T12:00:00'^^xsd:dateTime ;
+    schema:name "Creative Commons - Attribution-NonCommercial-NoDerivatives 4.0"@en, "Creative Commons - Naamsvermelding-NietCommercieel-GeenAfgeleideWerken"@nl ;
+    schema:alternateName "CC BY-NC-ND 4.0"^^xsd:string .
