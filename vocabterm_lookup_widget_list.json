@@ -22,14 +22,28 @@
   },
   {
     "name": "P01",
-    "description": "P01 BODC vocabulary",
+    "description": "Terms built using the BODC parameter semantic model designed to describe individual measured phenomena. May be used to mark up sets of data such as a NetCDF array or spreadsheet column. Units must be specified when using a P01 code. The P06 unit that is linked to individual P01 in the NVS is the one used in BODC's systems but external users can use any appropriate units.",
     "languages": ["en"],
     "objects": 50209,
     "code_copy": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n    <title>Search</title>\n    <script type=\"module\" src=\"https://vocab.vliz.be/webcomponent/main.js\"></script>\n  </head>\n  <body>\n    <h1>Search</h1>\n    <vocab-search-bar\n      source-vocabularies=\"https://my-application.com/vocabulary-alias/P01\"\n single-select=\"true\" \n     search-endpoint=\"https://vocab.vliz.be/concepts/search\">\n    </vocab-search-bar>\n  </body>\n</html>\n"
   },
   {
+    "name": "P06",
+    "description": "Terms approved for use by BODC to describe the measurement units for data held in its repositories.",
+    "languages": ["en"],
+    "objects": 408,
+    "code_copy": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n    <title>Search</title>\n    <script type=\"module\" src=\"https://vocab.vliz.be/webcomponent/main.js\"></script>\n  </head>\n  <body>\n    <h1>Search</h1>\n    <vocab-search-bar\n      source-vocabularies=\"https://my-application.com/vocabulary-alias/P06\"\n single-select=\"true\" \n     search-endpoint=\"https://vocab.vliz.be/concepts/search\">\n    </vocab-search-bar>\n  </body>\n</html>\n"
+  },
+  {
+    "name": "S25",
+    "description": "Terms used to describe biological entities (organisms or parts thereof) in the BODC Parameter Usage Vocabulary",
+    "languages": ["en"],
+    "objects": 8777,
+    "code_copy": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n    <title>Search</title>\n    <script type=\"module\" src=\"https://vocab.vliz.be/webcomponent/main.js\"></script>\n  </head>\n  <body>\n    <h1>Search</h1>\n    <vocab-search-bar\n      source-vocabularies=\"https://my-application.com/vocabulary-alias/S25\"\n single-select=\"true\" \n     search-endpoint=\"https://vocab.vliz.be/concepts/search\">\n    </vocab-search-bar>\n  </body>\n</html>\n"
+  },
+  {
     "name": "P02",
-    "description": "P02 BODC vocabulary",
+    "description": "Terms describing fine-grained related groups of measurement phenomena designed to be used in dataset discovery interfaces.",
     "languages": ["nl"],
     "objects": 468,
     "code_copy": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n    <title>Search</title>\n    <script type=\"module\" src=\"https://vocab.vliz.be/webcomponent/main.js\"></script>\n  </head>\n  <body>\n    <h1>Search</h1>\n    <vocab-search-bar\n      source-vocabularies=\"https://my-application.com/vocabulary-alias/P02\"\n single-select=\"true\" \n     search-endpoint=\"https://vocab.vliz.be/\">\n    </vocab-search-bar>\n  </body>\n</html>\n"
