@@ -54,5 +54,12 @@
     "languages": ["nl"],
     "objects": 468,
     "code_copy": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n    <title>Search</title>\n    <script type=\"module\" src=\"https://vocab.vliz.be/webcomponent/main.js\"></script>\n  </head>\n  <body>\n    <h1>Search</h1>\n    <vocab-search-bar\n      source-vocabularies=\"https://my-application.com/vocabulary-alias/P02\"\n single-select=\"true\" \n     search-endpoint=\"https://vocab.vliz.be/\">\n    </vocab-search-bar>\n  </body>\n</html>\n"
+  },
+  {
+    "name": "Marineinfo Institutes",
+    "description": "A curated list of institutes present in marineinfo",
+    "languages": ["nl", "en" ],
+    "objects": 1388,
+    "code_copy": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n    <title>Search</title>\n    <script type=\"module\" src=\"https://vocab.vliz.be/webcomponent/main.js\"></script>\n  </head>\n  <body>\n    <h1>Search</h1>\n    <vocab-search-bar\n      source-vocabularies=\"https://my-application.com/vocabulary-alias/marineinfo-institutes\"\n single-select=\"true\" \n     search-endpoint=\"https://vocab.vliz.be/\">\n    </vocab-search-bar>\n  </body>\n</html>\n"
   }
 ]
